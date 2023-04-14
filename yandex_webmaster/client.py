@@ -23,7 +23,7 @@ class YandexWebmaster(object):
             response = method(url, json=params)
         else:
             if params:
-                url = f'{url}?{urlencode(params)}'
+                url = f'{url}?{urlencode(list(params.items()), doseq=True)}'
             response = method(url)
         if response.status_code == 204:
             return {}
@@ -101,7 +101,7 @@ class YandexWebmaster(object):
     def get_search_query_all_history(
         self,
         host_id: str,
-        query_indicator: str,
+        query_indicator: list[str],
         date_from: Optional[datetime] = None,
         date_to: Optional[datetime] = None,
         device_type_indicator: Optional[str] = None,
