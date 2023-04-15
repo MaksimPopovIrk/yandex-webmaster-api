@@ -63,7 +63,7 @@ class YandexWebmaster(object):
         host_id: str,
         date_from: datetime,
         date_to: datetime,
-        query_indicator: str,
+        query_indicator: list[str],
         order_by: str = 'TOTAL_SHOWS',
         device_type_indicator: Optional[str] = 'ALL',
         limit: int = 500,
